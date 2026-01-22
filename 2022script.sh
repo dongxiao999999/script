@@ -171,7 +171,8 @@ get_base64_encode(){
 }
 
 gen_random_prot(){
-    ran_prot="$(shuf -i 9000-19999 -n 1)"
+#    ran_prot="$(shuf -i 9000-19999 -n 1)"
+	ran_prot="5555"
 }
 
 gen_random_psk(){
@@ -233,7 +234,7 @@ get_input_cipher(){
     for ((i=1;i<=${#SSRUST_CIPHERS[@]};i++)); do
         echo -e "  $i. ${SSRUST_CIPHERS[$i-1]}"
     done
-    echo && read -p "Please select an encryption method (deafult: ${SSRUST_CIPHERS[5]}): " index
+    echo && read -p "Please select an encryption method (deafult: ${SSRUST_CIPHERS[2]}): " index
     [ -z "${index}" ] && index=6
     ssrustCipher="${SSRUST_CIPHERS[$index-1]}"
     red "\n  Method = ${ssrustCipher}\n"
