@@ -273,7 +273,7 @@ get_ip(){
     [ ! -z ${IP} ] && echo ${IP} || echo
 }
 Dispaly_Selection(){
-    def_Install_Select="7"
+    def_Install_Select="3"
     echo -e "${COLOR_YELOW}You have 7 options for your kcptun/ss/ssr install.${COLOR_END}"
     echo "1: Install Shadowsocks-libev"
     echo "2: Install ShadowsocksR(python)"
@@ -1514,7 +1514,8 @@ pre_install_kcptun_for_ss_ssr(){
         echo "=========================================================="
         echo -e "${COLOR_PINK}Please input your KCPTUN setting:${COLOR_END}"
         echo
-        def_kcptun_pwd=`fun_randstr`
+      #  def_kcptun_pwd=`fun_randstr`
+	    def_kcptun_pwd="xqxdh"
         echo "Please input password for kcptun"
         read -p "(Default password: ${def_kcptun_pwd}):" set_kcptun_pwd
         [ -z "${set_kcptun_pwd}" ] && set_kcptun_pwd="${def_kcptun_pwd}"
@@ -1555,7 +1556,7 @@ pre_install_kcptun_for_ss_ssr(){
         else
             while true
             do
-                def_kcptun_target_port=""
+                def_kcptun_target_port="5555"
                 read -p "Please input kcptun Target Port for SS/SSR/Socks5 [1-65535]:" set_kcptun_target_port
                 [ -z "$set_kcptun_target_port" ] && set_kcptun_target_port="${def_kcptun_target_port}"
                 expr ${set_kcptun_target_port} + 0 &>/dev/null
