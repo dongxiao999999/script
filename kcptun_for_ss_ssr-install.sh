@@ -1557,7 +1557,7 @@ pre_install_kcptun_for_ss_ssr(){
             while true
             do
                 def_kcptun_target_port="5555"
-                read -p "Please input kcptun Target Port for SS/SSR/Socks5 [1-65535] [default:${def_kcptun_target_port}]:" set_kcptun_target_port
+                read -p "Please input kcptun Target Port for SS/SSR/Socks5 [1-65535]. default [${def_kcptun_target_port}])" set_kcptun_target_port
                 [ -z "$set_kcptun_target_port" ] && set_kcptun_target_port="${def_kcptun_target_port}"
                 expr ${set_kcptun_target_port} + 0 &>/dev/null
                 if [ $? -eq 0 ]; then
