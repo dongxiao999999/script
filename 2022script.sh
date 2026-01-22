@@ -235,7 +235,7 @@ get_input_cipher(){
         echo -e "  $i. ${SSRUST_CIPHERS[$i-1]}"
     done
     echo && read -p "Please select an encryption method (deafult: ${SSRUST_CIPHERS[2]}): " index
-    [ -z "${index}" ] && index=6
+    [ -z "${index}" ] && index=3
     ssrustCipher="${SSRUST_CIPHERS[$index-1]}"
     red "\n  Method = ${ssrustCipher}\n"
 }
