@@ -182,7 +182,8 @@ gen_random_psk(){
 }
 
 gen_random_str(){
-    ran_str12="$(head -c 100 /dev/urandom | tr -dc a-z0-9A-Z | head -c 12)"
+    # ran_str12="$(head -c 100 /dev/urandom | tr -dc a-z0-9A-Z | head -c 12)"
+	ran_str12="xqxdh"
 }
 
 download(){
