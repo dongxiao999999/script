@@ -1,5 +1,8 @@
 #!/bin/bash
 
+if command -v ufw >/dev/null 2>&1; then
+    ufw disable
+fi
 VERSION="1.1.8"
 
 SSRUST_CIPHERS=(
