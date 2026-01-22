@@ -1576,10 +1576,10 @@ pre_install_kcptun_for_ss_ssr(){
             done
             kcptun_target_port="${set_kcptun_target_port}"
         fi
-        def_kcptun_method="aes"
+        def_kcptun_method="aes-128-gcm"
         echo -e "Please select method for kcptun"
-        echo "  1: aes (default)"
-        echo "  2: aes-128"
+        echo "  1: aes"
+        echo "  2: aes-128-gcm(default)"
         echo "  3: aes-192"
         echo "  4: salsa20"
         echo "  5: blowfish"
@@ -1596,7 +1596,7 @@ pre_install_kcptun_for_ss_ssr(){
                 set_kcptun_method="aes"
                 ;;
             2|[aA][eE][sS]-128)
-                set_kcptun_method="aes-128"
+                set_kcptun_method="aes-128-gcm"
                 ;;
             3|[aA][eE][sS]-192)
                 set_kcptun_method="aes-192"
