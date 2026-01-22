@@ -11,30 +11,30 @@ if [ $(id -u) != "0" ]; then
     echo "Error: You must be root to run this script, please use root to install SS/SSR/KCPTUN"
     exit 1
 fi
-shell_update(){
-    fun_clangcn "clear"
-    echo "+ Check updates for shell..."
-    remote_shell_version=`wget --no-check-certificate -qO- ${shell_download_link} | sed -n '/'^version'/p' | cut -d\" -f2`
-    if [ ! -z ${remote_shell_version} ]; then
-        if [[ "${version}" != "${remote_shell_version}" ]];then
-            echo -e "${COLOR_GREEN}Found a new version,update now!!!${COLOR_END}"
-            echo
-            echo -n "+ Update shell ..."
-            if ! wget --no-check-certificate -qO $0 ${shell_download_link}; then
-                echo -e " [${COLOR_RED}failed${COLOR_END}]"
-                echo
-                exit 1
-            else
-                echo -e " [${COLOR_GREEN}OK${COLOR_END}]"
-                echo
-                echo -e "${COLOR_GREEN}Please Re-run${COLOR_END} ${COLOR_PINK}$0 ${clang_action}${COLOR_END}"
-                echo
-                exit 1
-            fi
-            exit 1
-        fi
-    fi
-}
+# shell_update(){
+#     fun_clangcn "clear"
+#     echo "+ Check updates for shell..."
+#     remote_shell_version=`wget --no-check-certificate -qO- ${shell_download_link} | sed -n '/'^version'/p' | cut -d\" -f2`
+#     if [ ! -z ${remote_shell_version} ]; then
+#         if [[ "${version}" != "${remote_shell_version}" ]];then
+#             echo -e "${COLOR_GREEN}Found a new version,update now!!!${COLOR_END}"
+#             echo
+#             echo -n "+ Update shell ..."
+#             if ! wget --no-check-certificate -qO $0 ${shell_download_link}; then
+#                 echo -e " [${COLOR_RED}failed${COLOR_END}]"
+#                 echo
+#                 exit 1
+#             else
+#                 echo -e " [${COLOR_GREEN}OK${COLOR_END}]"
+#                 echo
+#                 echo -e "${COLOR_GREEN}Please Re-run${COLOR_END} ${COLOR_PINK}$0 ${clang_action}${COLOR_END}"
+#                 echo
+#                 exit 1
+#             fi
+#             exit 1
+#         fi
+#     fi
+# }
 shell_download_link="https://raw.githubusercontent.com/onekeyshell/kcptun_for_ss_ssr/master/kcptun_for_ss_ssr-install.sh"
 program_version_link="https://raw.githubusercontent.com/onekeyshell/kcptun_for_ss_ssr/master/version.sh"
 ss_libev_config="/etc/shadowsocks-libev/config.json"
@@ -2129,7 +2129,7 @@ fun_clangcn "clear"
 Get_Dist_Name
 Check_OS_support
 pre_install_packs
-shell_update
+# shell_update
 [  -z ${clang_action} ] && clang_action="install"
 case "${clang_action}" in
 [Ii]|[Ii][Nn]|[Ii][Nn][Ss][Tt][Aa][Ll][Ll]|-[Ii]|--[Ii])
